@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+:root {
+  --toast-success-bg: rgb(34 197 94);
+  --toast-error-bg: rgb(239 68 68);
+  --toast-text: white;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
