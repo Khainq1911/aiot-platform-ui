@@ -14,11 +14,11 @@ import { loginServices, signupServices } from "@/services/auth.services";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { AxiosError } from "axios";
-import type { loginDto, signupDto, tabs } from "@/types/auth.types";
+import type { loginDto, signupDto} from "@/types/auth.types";
 
 export default function AuthPage() {
   const navigate = useNavigate();
-  const [tabValue, setTabValue] = useState<tabs>("login");
+  const [tabValue, setTabValue] = useState<string>("login");
   const [loginData, setLoginData] = useState<loginDto>({
     username: "",
     password: "",
@@ -40,7 +40,7 @@ export default function AuthPage() {
     setSignupData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleChangeTab = (value: "login" | "signup") => {
+  const handleChangeTab = (value: string) => {
     setTabValue(value);
   };
 
