@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { publicRoutes } from "./router";
+import { privateRoutes, publicRoutes } from "./routers/router";
+import PrivateRoutes from "./routers/private-layout";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
           const Page = route.component;
           return <Route key={index} path={route.path} element={<Page />} />;
         })}
-        {/* {privateRoutes.map((route, index) => {
+        {privateRoutes.map((route, index) => {
           const Page = route.component;
           return (
             <Route
@@ -22,7 +23,7 @@ function App() {
               }
             />
           );
-        })} */}
+        })}
       </Routes>
     </Router>
   );
