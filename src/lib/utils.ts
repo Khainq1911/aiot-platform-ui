@@ -13,6 +13,6 @@ export function isAuthenticated() {
 
 export function getUser() {
   const accessToken = isAuthenticated();
-  const user = jwtDecode(accessToken as string);
+  const user: { name: string } = jwtDecode(accessToken as string);
   return user;
 }

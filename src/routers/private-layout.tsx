@@ -1,6 +1,6 @@
 import AppSidebar from "@/components/layout/sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { isAuthenticated } from "@/lib/utils";
+import { getUser, isAuthenticated } from "@/lib/utils";
 import type { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 
@@ -10,9 +10,12 @@ export default function PrivateRoutes({ children }: { children: ReactNode }) {
       <div className="min-h-screen w-full flex">
         <AppSidebar />
         <main className="w-full">
-          <header className="p-4 flex justify-between items-center">
+          <header className="p-4 flex justify-between items-center shadow rounded">
             <SidebarTrigger />
-            <p>Hello! KhaiNguyen</p>
+            <p className="font-bold">
+              Hello
+              <span className="ml-2">{getUser().name}</span>!!
+            </p>
           </header>
           {children}
         </main>
