@@ -36,6 +36,7 @@ const RAW_RUNTIME_STATE =
           ["@radix-ui/react-tabs", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:1.1.12"],\
           ["@radix-ui/react-tooltip", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:1.2.7"],\
           ["@tailwindcss/vite", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:4.1.8"],\
+          ["@types/leaflet", "npm:1.9.18"],\
           ["@types/node", "npm:22.15.29"],\
           ["@types/react", "npm:19.1.6"],\
           ["@types/react-dom", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:19.1.5"],\
@@ -48,10 +49,13 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-react-hooks", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:5.2.0"],\
           ["eslint-plugin-react-refresh", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:0.4.20"],\
           ["globals", "npm:16.2.0"],\
+          ["jwt-decode", "npm:4.0.0"],\
+          ["leaflet", "npm:1.9.4"],\
           ["lucide-react", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:0.513.0"],\
           ["next-themes", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:0.4.6"],\
           ["react", "npm:19.1.0"],\
           ["react-dom", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:19.1.0"],\
+          ["react-leaflet", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:5.0.0-rc.2"],\
           ["react-router-dom", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:7.6.1"],\
           ["sonner", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:2.0.5"],\
           ["tailwind-merge", "npm:3.3.0"],\
@@ -1479,6 +1483,36 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@react-leaflet/core", [\
+      ["npm:3.0.0", {\
+        "packageLocation": "../../.yarn/berry/cache/@react-leaflet-core-npm-3.0.0-4e3f2d62b5-10c0.zip/node_modules/@react-leaflet/core/",\
+        "packageDependencies": [\
+          ["@react-leaflet/core", "npm:3.0.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:992caac926e59b6ee8237d06911992fb761d951bde7b727e202372ece650ac62f141c9c92e3debb4e2fd79bb10d988b8ed6a869d6d93b1ba35a1d7ed8b40b844#npm:3.0.0", {\
+        "packageLocation": "./.yarn/__virtual__/@react-leaflet-core-virtual-02f045d71e/3/.yarn/berry/cache/@react-leaflet-core-npm-3.0.0-4e3f2d62b5-10c0.zip/node_modules/@react-leaflet/core/",\
+        "packageDependencies": [\
+          ["@react-leaflet/core", "virtual:992caac926e59b6ee8237d06911992fb761d951bde7b727e202372ece650ac62f141c9c92e3debb4e2fd79bb10d988b8ed6a869d6d93b1ba35a1d7ed8b40b844#npm:3.0.0"],\
+          ["@types/leaflet", "npm:1.9.18"],\
+          ["@types/react", "npm:19.1.6"],\
+          ["@types/react-dom", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:19.1.5"],\
+          ["leaflet", "npm:1.9.4"],\
+          ["react", "npm:19.1.0"],\
+          ["react-dom", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:19.1.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/leaflet",\
+          "@types/react-dom",\
+          "@types/react",\
+          "leaflet",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@rolldown/pluginutils", [\
       ["npm:1.0.0-beta.9", {\
         "packageLocation": "../../.yarn/berry/cache/@rolldown-pluginutils-npm-1.0.0-beta.9-2851d2f2cc-10c0.zip/node_modules/@rolldown/pluginutils/",\
@@ -2008,11 +2042,30 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/geojson", [\
+      ["npm:7946.0.16", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-geojson-npm-7946.0.16-7a73d95991-10c0.zip/node_modules/@types/geojson/",\
+        "packageDependencies": [\
+          ["@types/geojson", "npm:7946.0.16"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/json-schema", [\
       ["npm:7.0.15", {\
         "packageLocation": "../../.yarn/berry/cache/@types-json-schema-npm-7.0.15-fd16381786-10c0.zip/node_modules/@types/json-schema/",\
         "packageDependencies": [\
           ["@types/json-schema", "npm:7.0.15"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/leaflet", [\
+      ["npm:1.9.18", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-leaflet-npm-1.9.18-61db773c9e-10c0.zip/node_modules/@types/leaflet/",\
+        "packageDependencies": [\
+          ["@types/geojson", "npm:7946.0.16"],\
+          ["@types/leaflet", "npm:1.9.18"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2382,6 +2435,7 @@ const RAW_RUNTIME_STATE =
           ["@radix-ui/react-tabs", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:1.1.12"],\
           ["@radix-ui/react-tooltip", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:1.2.7"],\
           ["@tailwindcss/vite", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:4.1.8"],\
+          ["@types/leaflet", "npm:1.9.18"],\
           ["@types/node", "npm:22.15.29"],\
           ["@types/react", "npm:19.1.6"],\
           ["@types/react-dom", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:19.1.5"],\
@@ -2394,10 +2448,13 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-react-hooks", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:5.2.0"],\
           ["eslint-plugin-react-refresh", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:0.4.20"],\
           ["globals", "npm:16.2.0"],\
+          ["jwt-decode", "npm:4.0.0"],\
+          ["leaflet", "npm:1.9.4"],\
           ["lucide-react", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:0.513.0"],\
           ["next-themes", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:0.4.6"],\
           ["react", "npm:19.1.0"],\
           ["react-dom", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:19.1.0"],\
+          ["react-leaflet", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:5.0.0-rc.2"],\
           ["react-router-dom", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:7.6.1"],\
           ["sonner", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:2.0.5"],\
           ["tailwind-merge", "npm:3.3.0"],\
@@ -3647,12 +3704,30 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["jwt-decode", [\
+      ["npm:4.0.0", {\
+        "packageLocation": "../../.yarn/berry/cache/jwt-decode-npm-4.0.0-4cd8e89909-10c0.zip/node_modules/jwt-decode/",\
+        "packageDependencies": [\
+          ["jwt-decode", "npm:4.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["keyv", [\
       ["npm:4.5.4", {\
         "packageLocation": "../../.yarn/berry/cache/keyv-npm-4.5.4-4c8e2cf7f7-10c0.zip/node_modules/keyv/",\
         "packageDependencies": [\
           ["json-buffer", "npm:3.0.1"],\
           ["keyv", "npm:4.5.4"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["leaflet", [\
+      ["npm:1.9.4", {\
+        "packageLocation": "../../.yarn/berry/cache/leaflet-npm-1.9.4-8d372b0fe6-10c0.zip/node_modules/leaflet/",\
+        "packageDependencies": [\
+          ["leaflet", "npm:1.9.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4316,6 +4391,37 @@ const RAW_RUNTIME_STATE =
         ],\
         "packagePeers": [\
           "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-leaflet", [\
+      ["npm:5.0.0-rc.2", {\
+        "packageLocation": "../../.yarn/berry/cache/react-leaflet-npm-5.0.0-rc.2-90c108ce67-10c0.zip/node_modules/react-leaflet/",\
+        "packageDependencies": [\
+          ["react-leaflet", "npm:5.0.0-rc.2"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:5.0.0-rc.2", {\
+        "packageLocation": "./.yarn/__virtual__/react-leaflet-virtual-992caac926/3/.yarn/berry/cache/react-leaflet-npm-5.0.0-rc.2-90c108ce67-10c0.zip/node_modules/react-leaflet/",\
+        "packageDependencies": [\
+          ["@react-leaflet/core", "virtual:992caac926e59b6ee8237d06911992fb761d951bde7b727e202372ece650ac62f141c9c92e3debb4e2fd79bb10d988b8ed6a869d6d93b1ba35a1d7ed8b40b844#npm:3.0.0"],\
+          ["@types/leaflet", "npm:1.9.18"],\
+          ["@types/react", "npm:19.1.6"],\
+          ["@types/react-dom", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:19.1.5"],\
+          ["leaflet", "npm:1.9.4"],\
+          ["react", "npm:19.1.0"],\
+          ["react-dom", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:19.1.0"],\
+          ["react-leaflet", "virtual:054bf53522a08bf2c62ba9860c9e0eca8166536cae0196df9cb3f1e715bf162583054f51a1545eeea0796e6cec44caf0ab5f961c59a844ff962e91c3aaeb6d5b#npm:5.0.0-rc.2"]\
+        ],\
+        "packagePeers": [\
+          "@types/leaflet",\
+          "@types/react-dom",\
+          "@types/react",\
+          "leaflet",\
+          "react-dom",\
           "react"\
         ],\
         "linkType": "HARD"\

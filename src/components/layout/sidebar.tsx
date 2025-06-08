@@ -20,6 +20,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "../ui/sidebar";
+import { useNavigate } from "react-router-dom";
 
 const items = [
   {
@@ -50,6 +51,13 @@ const items = [
 ];
 
 export default function AppSidebar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    navigate("/auth");
+  };
+
   return (
     <Sidebar>
       <SidebarHeader>
@@ -90,7 +98,7 @@ export default function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton>
+            <SidebarMenuButton onClick={handleLogout}>
               <LogOut />
               <span>Logout</span>
             </SidebarMenuButton>
