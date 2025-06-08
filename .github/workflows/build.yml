@@ -28,4 +28,4 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ vars.DOCKER_USERNAME }}/aiot-platform-ui:latest
+          tags: ${{ vars.DOCKER_NAME }}/aiot-platform-ui:latest
