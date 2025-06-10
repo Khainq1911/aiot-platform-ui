@@ -68,7 +68,7 @@ export default function HomePage() {
     <div className="lg:flex relative">
       <div className="w-full lg:w-[80%]">
         <MapContainer
-          center={[51.505, -0.09]}
+          center={[21.005, 105.845]}
           zoom={13}
           scrollWheelZoom={false}
           style={{
