@@ -63,8 +63,8 @@ export default function NewProject({
           <DialogHeader>
             <DialogTitle>New Project</DialogTitle>
             <DialogDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
+              This will permanently delete your account and remove your data
+              from our servers.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">
