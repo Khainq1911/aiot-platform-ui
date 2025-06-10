@@ -3,7 +3,6 @@ import {
   Calendar,
   Cpu,
   Home,
-  Inbox,
   LogOut,
   Search,
   Settings,
