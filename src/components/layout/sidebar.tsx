@@ -1,4 +1,5 @@
 import {
+  Bolt,
   Calendar,
   Cpu,
   Home,
@@ -25,13 +26,13 @@ import { useNavigate } from "react-router-dom";
 const items = [
   {
     title: "Home",
-    url: "#",
+    url: "/",
     icon: Home,
   },
   {
-    title: "Inbox",
-    url: "#",
-    icon: Inbox,
+    title: "Projects Management",
+    url: "/projects-management",
+    icon: Bolt,
   },
   {
     title: "Calendar",
