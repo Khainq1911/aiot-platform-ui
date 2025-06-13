@@ -1,10 +1,10 @@
 import {
   Bolt,
-  Calendar,
   Cpu,
   Home,
   LogOut,
-  Search,
+  Monitor,
+  Plug,
   Settings,
   Wifi,
 } from "lucide-react";
@@ -36,12 +36,12 @@ const items = [
   {
     title: "Devices",
     url: "/devices",
-    icon: Search,
+    icon: Monitor,
   },
   {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
+    title: "Sub Device",
+    url: "/sub-device",
+    icon: Plug,
   },
   {
     title: "Settings",

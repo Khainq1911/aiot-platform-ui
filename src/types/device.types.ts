@@ -23,3 +23,22 @@ export type DeviceTableRow = {
   createdAt: string;
   updatedAt: string;
 };
+
+export type subDeviceData = {
+  id: number;
+  name: string;
+  description: string;
+  type: string; 
+  unit: string; 
+  publish: boolean;
+  createdAt: string;
+  updatedAt: string; 
+  detection_timer: number | null;
+  lower_limit: number | null;
+  upper_limit: number | null;
+  selected_area: any | null; 
+  permissions: any | null;  
+  device_id: string | null;
+  device: any | null;        
+};
+
