@@ -34,14 +34,14 @@ const items = [
     icon: Bolt,
   },
   {
+    title: "Devices",
+    url: "/devices",
+    icon: Search,
+  },
+  {
     title: "Calendar",
     url: "#",
     icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
   },
   {
     title: "Settings",
