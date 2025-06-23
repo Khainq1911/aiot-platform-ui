@@ -1,5 +1,6 @@
 import { RoutesConfigs } from "@/configs/routes.configs";
 import AuthPage from "@/pages/auth";
+import Dashboard from "@/pages/dashboard";
 import DevicePage from "@/pages/device";
 import HomePage from "@/pages/home";
 import NotificationPage from "@/pages/notification";
@@ -13,6 +14,7 @@ const privateRoutes = [
   { path: RoutesConfigs.device, component: DevicePage },
   { path: RoutesConfigs.subDevice, component: SubDevicePage },
   { path: RoutesConfigs.notification, component: NotificationPage },
+  { path: RoutesConfigs.dashboard, component: Dashboard },
 ];
 
 export { publicRoutes, privateRoutes };

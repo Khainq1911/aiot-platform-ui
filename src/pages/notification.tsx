@@ -128,129 +128,131 @@ export default function NotificationPage() {
   }, []);
 
   return (
-    <div className="mx-auto p-6 max-w-6xl">
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold mb-2">Messages Dashboard</h1>
-        <p className="text-muted-foreground">
-          Monitor notification alerts and sensor data from your connected
-          devices
-        </p>
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="mx-auto max-w-7xl space-y-6">
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold mb-2">Messages Dashboard</h1>
+          <p className="text-muted-foreground">
+            Monitor notification alerts and sensor data from your connected
+            devices
+          </p>
+        </div>
+
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Filter className="h-4 w-4" />
+              Filters Information
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="name-filter">Name</Label>
+                <Input
+                  id="name-filter"
+                  placeholder="Search by name..."
+                  value={params.q}
+                  onChange={(e) => {
+                    return setParams({ ...params, q: e.target.value });
+                  }}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="start-date">Start Date</Label>
+                <DatePicker
+                  date={params.start}
+                  onChange={(date) => {
+                    toast.success("Start Date Updated", {
+                      description: "Start date filter has been applied.",
+                      style: {
+                        background: "var(--toast-success-bg)",
+                        color: "var(--toast-text)",
+                      },
+                    });
+
+                    return setParams((prev) => ({ ...prev, start: date }));
+                  }}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="end-date">End Date</Label>
+                <DatePicker
+                  date={params.end}
+                  onChange={(date) => {
+                    toast.success("End Date Updated", {
+                      description: "End date filter has been applied.",
+                      style: {
+                        background: "var(--toast-success-bg)",
+                        color: "var(--toast-text)",
+                      },
+                    });
+                    return setParams((prev) => ({ ...prev, end: date }));
+                  }}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="limit">Items per page</Label>
+                <Select
+                  defaultValue={params.limit}
+                  onValueChange={(value) => {
+                    toast.success("Pagination Updated", {
+                      description: `Items per page set to ${value}.`,
+                      style: {
+                        background: "var(--toast-success-bg)",
+                        color: "var(--toast-text)",
+                      },
+                    });
+                    return setParams((prev) => ({ ...prev, limit: value }));
+                  }}
+                >
+                  <SelectTrigger className="w-full">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="5">5 items</SelectItem>
+                    <SelectItem value="10">10 items</SelectItem>
+                    <SelectItem value="20">20 items</SelectItem>
+                    <SelectItem value="50">50 items</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Tabs value={tabs} onValueChange={handleTabsChange} className="w-full">
+          <TabsList className=" w-full grid grid-cols-3">
+            <TabsTrigger value="notification">
+              <Bell className="h-4 w-4" />
+              Notification
+            </TabsTrigger>
+            <TabsTrigger value="sensor">
+              <Activity className="h-4 w-4" />
+              Sensor
+            </TabsTrigger>
+            <TabsTrigger value="object">
+              <Cctv className="h-4 w-4" />
+              Object
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent value="notification">
+            {notifications.message.map((item, index) => (
+              <NotificationItem key={index} message={item} />
+            ))}
+          </TabsContent>
+          <TabsContent value="sensor">
+            {sensors.message.map((item: SensorMessage, index) => (
+              <SensorItem key={index} message={item} />
+            ))}
+          </TabsContent>
+        </Tabs>
+
+        <PaginationComponent params={params} setParams={setParams} />
       </div>
-
-      <Card className="mb-6">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Filter className="h-4 w-4" />
-            Filters Information
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="name-filter">Name</Label>
-              <Input
-                id="name-filter"
-                placeholder="Search by name..."
-                value={params.q}
-                onChange={(e) => {
-                  return setParams({ ...params, q: e.target.value });
-                }}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="start-date">Start Date</Label>
-              <DatePicker
-                date={params.start}
-                onChange={(date) => {
-                  toast.success("Start Date Updated", {
-                    description: "Start date filter has been applied.",
-                    style: {
-                      background: "var(--toast-success-bg)",
-                      color: "var(--toast-text)",
-                    },
-                  });
-
-                  return setParams((prev) => ({ ...prev, start: date }));
-                }}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="end-date">End Date</Label>
-              <DatePicker
-                date={params.end}
-                onChange={(date) => {
-                  toast.success("End Date Updated", {
-                    description: "End date filter has been applied.",
-                    style: {
-                      background: "var(--toast-success-bg)",
-                      color: "var(--toast-text)",
-                    },
-                  });
-                  return setParams((prev) => ({ ...prev, end: date }));
-                }}
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="limit">Items per page</Label>
-              <Select
-                defaultValue={params.limit}
-                onValueChange={(value) => {
-                  toast.success("Pagination Updated", {
-                    description: `Items per page set to ${value}.`,
-                    style: {
-                      background: "var(--toast-success-bg)",
-                      color: "var(--toast-text)",
-                    },
-                  });
-                  return setParams((prev) => ({ ...prev, limit: value }));
-                }}
-              >
-                <SelectTrigger className="w-full">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="5">5 items</SelectItem>
-                  <SelectItem value="10">10 items</SelectItem>
-                  <SelectItem value="20">20 items</SelectItem>
-                  <SelectItem value="50">50 items</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      <Tabs value={tabs} onValueChange={handleTabsChange} className="w-full">
-        <TabsList className=" w-full grid grid-cols-3">
-          <TabsTrigger value="notification">
-            <Bell className="h-4 w-4" />
-            Notification
-          </TabsTrigger>
-          <TabsTrigger value="sensor">
-            <Activity className="h-4 w-4" />
-            Sensor
-          </TabsTrigger>
-          <TabsTrigger value="object">
-            <Cctv className="h-4 w-4" />
-            Object
-          </TabsTrigger>
-        </TabsList>
-        <TabsContent value="notification">
-          {notifications.message.map((item, index) => (
-            <NotificationItem key={index} message={item} />
-          ))}
-        </TabsContent>
-        <TabsContent value="sensor">
-          {sensors.message.map((item: SensorMessage, index) => (
-            <SensorItem key={index} message={item} />
-          ))}
-        </TabsContent>
-      </Tabs>
-
-      <PaginationComponent params={params} setParams={setParams} />
     </div>
   );
 }

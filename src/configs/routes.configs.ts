@@ -5,4 +5,5 @@ export const RoutesConfigs = {
   device: "/devices",
   subDevice: "/sub-device",
   notification: "/notification",
+  dashboard: "/dashboard",
 };
