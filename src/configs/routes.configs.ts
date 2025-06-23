@@ -4,4 +4,5 @@ export const RoutesConfigs = {
   ProjectsManagement: "/projects-management",
   device: "/devices",
   subDevice: "/sub-device",
+  notification: "/notification",
 };
