@@ -1,6 +1,7 @@
 import {
   Bell,
   Bolt,
+  ChartArea,
   Cpu,
   Home,
   LogOut,
@@ -47,6 +48,11 @@ const items = [
     title: "Notification",
     url: "/notification",
     icon: Bell,
+  },
+  {
+    title: "Dashboard",
+    url: "/dashboard",
+    icon: ChartArea,
   },
 ];
 
