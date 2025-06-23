@@ -1,14 +1,12 @@
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import type { Params } from "@/types/notification.types";
-import { useState } from "react";
 
 const ITEMSPERPAGE = 10;
 
@@ -17,9 +15,8 @@ type Props = {
   setParams: React.Dispatch<React.SetStateAction<Params>>;
 };
 
+const totalItem = 100;
 export default function PaginationComponent({ params, setParams }: Props) {
-  const [totalItem, setTotalItem] = useState(100);
-
   const totalPage = Math.ceil(totalItem / ITEMSPERPAGE);
 
   const getPage = () => {
