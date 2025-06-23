@@ -37,8 +37,7 @@ import {
   LineChart,
   XAxis,
   YAxis,
-  CartesianGrid,
-  ResponsiveContainer,
+  CartesianGrid
 } from "recharts";
 import {
   ChartContainer,
