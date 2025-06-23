@@ -1,11 +1,11 @@
 import {
+  Bell,
   Bolt,
   Cpu,
   Home,
   LogOut,
   Monitor,
   Plug,
-  Settings,
   Wifi,
 } from "lucide-react";
 import {
@@ -44,9 +44,9 @@ const items = [
     icon: Plug,
   },
   {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
+    title: "Notification",
+    url: "/notification",
+    icon: Bell,
   },
 ];
 
