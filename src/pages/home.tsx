@@ -19,6 +19,7 @@ import {
 import { Button } from "@/components/ui/button";
 import ListPointCard from "@/components/ui/list-point-card";
 import { toast } from "sonner";
+import { SetZoneService } from "@/services/device.services";
 
 interface location {
   lat: number;
@@ -64,6 +65,24 @@ function LocationMarker({
 export default function HomePage() {
   const [polygonPoints, setPolygonPoints] = useState<LatLngTuple[]>([]);
 
+  const handleSetZone = async () => {
+    try {
+      await SetZoneService(12, {
+        type: "camera",
+        selected_area: polygonPoints,
+      });
+      toast.success("Update Success", {
+        description: "Update Success",
+        style: {
+          background: "var(--toast-success-bg)",
+          color: "var(--toast-text)",
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="lg:flex relative">
       <div className="w-full lg:w-[80%]">
@@ -98,6 +117,7 @@ export default function HomePage() {
       <div className="hidden lg:block w-[20%] space-y-4 p-4">
         <h1 className="font-bold">Selected Location</h1>
         <ListPointCard
+          handleSetZone={handleSetZone}
           polygonPoints={polygonPoints}
           setPolygonPoints={setPolygonPoints}
         />
@@ -120,6 +140,7 @@ export default function HomePage() {
               <p className="text-sm text-gray-500">No points selected</p>
             ) : (
               <ListPointCard
+                handleSetZone={handleSetZone}
                 polygonPoints={polygonPoints}
                 setPolygonPoints={setPolygonPoints}
               />
