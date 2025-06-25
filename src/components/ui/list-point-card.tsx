@@ -6,9 +6,11 @@ import { Button } from "./button";
 import type { Dispatch, SetStateAction } from "react";
 
 export default function ListPointCard({
+  handleSetZone,
   polygonPoints,
   setPolygonPoints,
 }: {
+  handleSetZone: () => void;
   polygonPoints: LatLngTuple[];
   setPolygonPoints: Dispatch<SetStateAction<LatLngTuple[]>>;
 }) {
@@ -71,6 +73,14 @@ export default function ListPointCard({
       >
         <Trash2 className="h-4 w-4 mr-2" />
         Clear All Locations
+      </Button>
+      <Button
+        variant="outline"
+        className="w-full border border-blue-200 text-blue-600 hover:bg-blue-50 hover:text-blue-700 transition-colors"
+        onClick={handleSetZone}
+      >
+        <MapPin className="h-4 w-4 mr-2" />
+        Set Zone
       </Button>
     </>
   );
