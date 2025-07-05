@@ -37,7 +37,7 @@ import {
   LineChart,
   XAxis,
   YAxis,
-  CartesianGrid
+  CartesianGrid,
 } from "recharts";
 import {
   ChartContainer,
@@ -78,6 +78,7 @@ type DashboardDataType = {
     sensor: number;
   }[];
   notificationStatus: {
+    // eslint-disable-next-line
     objects: any[]; // You can define a specific type if needed
     notifications: {
       status: string;
@@ -87,7 +88,7 @@ type DashboardDataType = {
       status: string;
       count: string;
     }[];
-  };
+  }; // eslint-disable-next-line
   totalSensorByDate: any[]; // Define this based on the expected structure
 };
 
@@ -130,31 +131,31 @@ export default function Dashboard() {
   } = dashboardData;
 
   // Calculate totals
-  const totalSensors = messageDevice.reduce(
+  const totalSensors = messageDevice?.reduce(
     (sum, device) => sum + device.sensor,
     0
   );
-  const totalNotifications = messageDevice.reduce(
+  const totalNotifications = messageDevice?.reduce(
     (sum, device) => sum + device.notification,
     0
   );
 
   const activeDevicePercentage =
-    statusDevice.total > 0
+    statusDevice?.total > 0
       ? (statusDevice.deviceActive / statusDevice.total) * 100
       : 0;
 
   // Chart data
   const deviceStatusData = [
-    { name: "Hoạt động", value: statusDevice.deviceActive, color: "#22c55e" },
+    { name: "Hoạt động", value: statusDevice?.deviceActive, color: "#22c55e" },
     {
       name: "Không hoạt động",
-      value: statusDevice.deviceInActive,
+      value: statusDevice?.deviceInActive,
       color: "#ef4444",
     },
   ];
 
-  const sensorData = messageDevice.map((device) => ({
+  const sensorData = messageDevice?.map((device) => ({
     name: device.name,
     sensors: device.sensor,
     notifications: device.notification,
@@ -163,12 +164,14 @@ export default function Dashboard() {
   const notificationData = [
     {
       name: "Notifications Pending",
-      value: Number.parseInt(notificationStatus.notifications[0]?.count || "0"),
+      value: Number.parseInt(
+        notificationStatus?.notifications[0]?.count || "0"
+      ),
       color: "#f59e0b",
     },
     {
       name: "Sensors Pending",
-      value: Number.parseInt(notificationStatus.sensors[0]?.count || "0"),
+      value: Number.parseInt(notificationStatus?.sensors[0]?.count || "0"),
       color: "#3b82f6",
     },
   ];
@@ -186,17 +189,17 @@ export default function Dashboard() {
   const detectionData = [
     {
       name: "Con người",
-      value: typeDetect.reduce((sum, device) => sum + device.human, 0),
+      value: typeDetect?.reduce((sum, device) => sum + device.human, 0),
       color: "#3b82f6",
     },
     {
       name: "Phương tiện",
-      value: typeDetect.reduce((sum, device) => sum + device.vehicle, 0),
+      value: typeDetect?.reduce((sum, device) => sum + device.vehicle, 0),
       color: "#22c55e",
     },
     {
       name: "Khác",
-      value: typeDetect.reduce((sum, device) => sum + device.all, 0),
+      value: typeDetect?.reduce((sum, device) => sum + device.all, 0),
       color: "#8b5cf6",
     },
   ];
@@ -223,12 +226,12 @@ export default function Dashboard() {
               <Monitor className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{statusDevice.total}</div>
+              <div className="text-2xl font-bold">{statusDevice?.total}</div>
               <div className="flex items-center space-x-2 text-xs text-muted-foreground">
                 <CheckCircle className="h-3 w-3 text-green-500" />
-                <span>{statusDevice.deviceActive} hoạt động</span>
+                <span>{statusDevice?.deviceActive} hoạt động</span>
                 <AlertCircle className="h-3 w-3 text-red-500" />
-                <span>{statusDevice.deviceInActive} không hoạt động</span>
+                <span>{statusDevice?.deviceInActive} không hoạt động</span>
               </div>
             </CardContent>
           </Card>
@@ -243,7 +246,7 @@ export default function Dashboard() {
             <CardContent>
               <div className="text-2xl font-bold">{totalSensors}</div>
               <p className="text-xs text-muted-foreground">
-                Từ {messageDevice.length} thiết bị
+                Từ {messageDevice?.length} thiết bị
               </p>
             </CardContent>
           </Card>
@@ -458,7 +461,7 @@ export default function Dashboard() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              {notificationStatus.notifications.map((notification, index) => (
+              {notificationStatus?.notifications.map((notification, index) => (
                 <div key={index} className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <Clock className="h-4 w-4 text-orange-500" />
@@ -470,7 +473,7 @@ export default function Dashboard() {
                 </div>
               ))}
 
-              {notificationStatus.sensors.map((sensor, index) => (
+              {notificationStatus?.sensors.map((sensor, index) => (
                 <div key={index} className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <Clock className="h-4 w-4 text-blue-500" />
@@ -500,7 +503,7 @@ export default function Dashboard() {
                     <span className="text-sm font-medium">Con người</span>
                   </div>
                   <Badge variant="outline">
-                    {typeDetect.reduce((sum, device) => sum + device.human, 0)}
+                    {typeDetect?.reduce((sum, device) => sum + device.human, 0)}
                   </Badge>
                 </div>
 
@@ -510,7 +513,7 @@ export default function Dashboard() {
                     <span className="text-sm font-medium">Phương tiện</span>
                   </div>
                   <Badge variant="outline">
-                    {typeDetect.reduce(
+                    {typeDetect?.reduce(
                       (sum, device) => sum + device.vehicle,
                       0
                     )}
@@ -523,7 +526,7 @@ export default function Dashboard() {
                     <span className="text-sm font-medium">Tổng cộng</span>
                   </div>
                   <Badge variant="outline">
-                    {typeDetect.reduce((sum, device) => sum + device.all, 0)}
+                    {typeDetect?.reduce((sum, device) => sum + device.all, 0)}
                   </Badge>
                 </div>
               </div>
@@ -551,7 +554,7 @@ export default function Dashboard() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {messageDevice.map((device) => {
+                {messageDevice?.map((device) => {
                   const detection = typeDetect.find((d) => d.id === device.id);
                   return (
                     <TableRow key={device.id}>
@@ -620,7 +623,7 @@ export default function Dashboard() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {notificationType.map((device) => (
+                {notificationType?.map((device) => (
                   <TableRow key={device.id}>
                     <TableCell className="font-medium">{device.name}</TableCell>
                     <TableCell className="text-right">

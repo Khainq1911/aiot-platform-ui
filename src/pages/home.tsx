@@ -35,12 +35,12 @@ function LocationMarker({
 }) {
   useMapEvents({
     click(e) {
-      if (polygonPoints.length < 4) {
+      if (polygonPoints.length < 6) {
         const { lat, lng }: location = e.latlng;
         setPolygonPoints((prev: LatLngTuple[]) => [...prev, [lat, lng]]);
       } else {
         toast.error("Maximum points reached", {
-          description: "You can only add up to 4 points to the polygon.",
+          description: "You can only add up to 6 points to the polygon.",
           style: {
             background: "var(--toast-error-bg)",
             color: "var(--toast-text)",
@@ -84,7 +84,13 @@ export default function HomePage() {
   };
 
   return (
-    <div className="lg:flex relative">
+    <div
+      className="lg:flex relative"
+      style={{
+        height: "calc(100vh - 60px)",
+        width: "100%",
+      }}
+    >
       <div className="w-full lg:w-[80%]">
         <MapContainer
           center={[21.005, 105.845]}
@@ -114,7 +120,7 @@ export default function HomePage() {
         </MapContainer>
       </div>
 
-      <div className="hidden lg:block w-[20%] space-y-4 p-4">
+      <div className="hidden lg:block w-[20%] space-y-4 p-4 h-full overflow-auto">
         <h1 className="font-bold">Selected Location</h1>
         <ListPointCard
           handleSetZone={handleSetZone}

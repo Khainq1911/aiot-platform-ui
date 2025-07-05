@@ -15,7 +15,7 @@ export interface Device {
   id: number;
   createdAt: string;
   updatedAt: string;
-  projectId: number | null;
+  projectId: number | null; // eslint-disable-next-line
   data: Record<string, any>;
 }
 
