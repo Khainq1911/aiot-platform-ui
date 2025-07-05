@@ -39,7 +39,9 @@ export default function SubDevicePage() {
     try {
       const res = await listSubDeviceService();
       setSubDeviceData(res);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleUpdateSubdevice = async () => {
@@ -66,6 +68,12 @@ export default function SubDevicePage() {
 
   return (
     <div className="p-4">
+      <div>
+        <h1 className="text-2xl font-bold text-slate-900">Sub-Device</h1>
+        <p className="text-slate-600">
+          Manage and monitor all your IoT devices
+        </p>
+      </div>
       <div className="border rounded-lg bg-white overflow-hidden p-2 mt-4">
         <Table>
           <TableHeader>
@@ -77,7 +85,6 @@ export default function SubDevicePage() {
               <TableHead>Device</TableHead>
               <TableHead>Upper Limit</TableHead>
               <TableHead>Lower Limit</TableHead>
-              <TableHead>Selected Area</TableHead>
               <TableHead>Action</TableHead>
             </TableRow>
           </TableHeader>
@@ -91,7 +98,6 @@ export default function SubDevicePage() {
                 <TableCell>{item.device_id || "None"}</TableCell>
                 <TableCell>{item.upper_limit || "None"}</TableCell>
                 <TableCell>{item.lower_limit || "None"}</TableCell>
-                <TableCell>{item.selected_area || "None"}</TableCell>
                 <TableCell>
                   <SquarePen
                     onClick={() => {
