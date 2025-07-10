@@ -40,8 +40,8 @@ export default function NotificationItem({
         <CardContent className="space-y-4">
           <div>
             <h4 className="font-medium mb-2">Message</h4>
-            <p className="text-sm text-muted-foreground bg-muted p-3 rounded-md">
-              {message.payload}
+            <p className="text-white bg-blue-600 p-3 rounded-md">
+              {message?.payload}
             </p>
           </div>
 
@@ -52,7 +52,7 @@ export default function NotificationItem({
                 Location
               </h4>
               <MapContainer
-                center={[21.005, 105.845]}
+                center={[message?.location?.lat, message?.location?.lon]}
                 zoom={13}
                 scrollWheelZoom={false}
                 style={{
@@ -67,7 +67,9 @@ export default function NotificationItem({
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
 
-                <Marker position={[51.505, -0.09]}>
+                <Marker
+                  position={[message?.location?.lat, message?.location?.lon]}
+                >
                   <Popup>
                     A pretty CSS3 popup. <br /> Easily customizable.
                   </Popup>

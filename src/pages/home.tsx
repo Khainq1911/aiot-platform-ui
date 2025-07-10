@@ -7,7 +7,7 @@ import {
   useMapEvents,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useState, type Dispatch, type SetStateAction } from "react";
+import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import type { LatLngTuple } from "leaflet";
 import {
   Sheet,
@@ -19,7 +19,10 @@ import {
 import { Button } from "@/components/ui/button";
 import ListPointCard from "@/components/ui/list-point-card";
 import { toast } from "sonner";
-import { SetZoneService } from "@/services/device.services";
+import {
+  listSubDeviceService,
+  SetZoneService,
+} from "@/services/device.services";
 
 interface location {
   lat: number;
@@ -65,9 +68,21 @@ function LocationMarker({
 export default function HomePage() {
   const [polygonPoints, setPolygonPoints] = useState<LatLngTuple[]>([]);
 
+  const handleGetZone = async () => {
+    try {
+      const res = await listSubDeviceService();
+      setPolygonPoints(res[0].selected_area);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    handleGetZone();
+  }, []);
   const handleSetZone = async () => {
     try {
-      await SetZoneService(12, {
+      await SetZoneService(16, {
         type: "camera",
         selected_area: polygonPoints,
       });
